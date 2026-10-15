@@ -2,7 +2,7 @@
   "realm": "ganpat-iam",
   "displayName": "Ganpat University IAM",
   "enabled": true,
-  "sslRequired": "none",
+  "sslRequired": "external",
   "loginTheme": "ganpat",
   "accountTheme": "ganpat",
   "adminTheme": "ganpat",
@@ -21,6 +21,7 @@
   "minimumQuickLoginWaitSeconds": 60,
   "quickLoginCheckMilliSeconds": 1000,
   "maxDeltaTimeSeconds": 43200,
+  "passwordPolicy": "length(12) and digits(1) and upperCase(1) and lowerCase(1) and specialChars(1) and notUsername and passwordHistory(3)",
   "roles": {
     "realm": [
       {
@@ -94,60 +95,653 @@
     {
       "name": "Departments",
       "path": "/Departments",
+      "attributes": {
+        "description": [
+          "Department groups"
+        ]
+      },
       "subGroups": [
         {
           "name": "ICT",
+          "path": "/Departments/ICT",
           "attributes": {
             "department": [
               "ICT"
+            ],
+            "departmentCode": [
+              "ICT"
+            ],
+            "description": [
+              "Institute of Computer Technology"
             ]
           },
-          "subGroups": []
+          "subGroups": [
+            {
+              "name": "Students",
+              "attributes": {
+                "department": [
+                  "ICT"
+                ],
+                "baseRole": [
+                  "student"
+                ]
+              },
+              "realmRoles": [
+                "student"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Faculty",
+              "attributes": {
+                "department": [
+                  "ICT"
+                ],
+                "baseRole": [
+                  "faculty"
+                ]
+              },
+              "realmRoles": [
+                "faculty"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Employees",
+              "attributes": {
+                "department": [
+                  "ICT"
+                ],
+                "baseRole": [
+                  "employee"
+                ]
+              },
+              "realmRoles": [
+                "employee"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Managers",
+              "attributes": {
+                "department": [
+                  "ICT"
+                ],
+                "baseRole": [
+                  "manager"
+                ]
+              },
+              "realmRoles": [
+                "manager"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Leaders",
+              "attributes": {
+                "department": [
+                  "ICT"
+                ],
+                "baseRole": [
+                  "dept-leader"
+                ]
+              },
+              "realmRoles": [
+                "dept-leader"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Auditors",
+              "attributes": {
+                "department": [
+                  "ICT"
+                ],
+                "baseRole": [
+                  "read-only"
+                ]
+              },
+              "realmRoles": [
+                "read-only"
+              ],
+              "subGroups": []
+            }
+          ]
         },
         {
           "name": "Electronics",
+          "path": "/Departments/Electronics",
           "attributes": {
             "department": [
               "Electronics"
+            ],
+            "departmentCode": [
+              "ELEC"
+            ],
+            "description": [
+              "Electronics"
             ]
           },
-          "subGroups": []
+          "subGroups": [
+            {
+              "name": "Students",
+              "attributes": {
+                "department": [
+                  "Electronics"
+                ],
+                "baseRole": [
+                  "student"
+                ]
+              },
+              "realmRoles": [
+                "student"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Faculty",
+              "attributes": {
+                "department": [
+                  "Electronics"
+                ],
+                "baseRole": [
+                  "faculty"
+                ]
+              },
+              "realmRoles": [
+                "faculty"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Employees",
+              "attributes": {
+                "department": [
+                  "Electronics"
+                ],
+                "baseRole": [
+                  "employee"
+                ]
+              },
+              "realmRoles": [
+                "employee"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Managers",
+              "attributes": {
+                "department": [
+                  "Electronics"
+                ],
+                "baseRole": [
+                  "manager"
+                ]
+              },
+              "realmRoles": [
+                "manager"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Leaders",
+              "attributes": {
+                "department": [
+                  "Electronics"
+                ],
+                "baseRole": [
+                  "dept-leader"
+                ]
+              },
+              "realmRoles": [
+                "dept-leader"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Auditors",
+              "attributes": {
+                "department": [
+                  "Electronics"
+                ],
+                "baseRole": [
+                  "read-only"
+                ]
+              },
+              "realmRoles": [
+                "read-only"
+              ],
+              "subGroups": []
+            }
+          ]
         },
         {
           "name": "Mechanical",
+          "path": "/Departments/Mechanical",
           "attributes": {
             "department": [
               "Mechanical"
+            ],
+            "departmentCode": [
+              "MECH"
+            ],
+            "description": [
+              "Mechanical"
             ]
           },
-          "subGroups": []
+          "subGroups": [
+            {
+              "name": "Students",
+              "attributes": {
+                "department": [
+                  "Mechanical"
+                ],
+                "baseRole": [
+                  "student"
+                ]
+              },
+              "realmRoles": [
+                "student"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Faculty",
+              "attributes": {
+                "department": [
+                  "Mechanical"
+                ],
+                "baseRole": [
+                  "faculty"
+                ]
+              },
+              "realmRoles": [
+                "faculty"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Employees",
+              "attributes": {
+                "department": [
+                  "Mechanical"
+                ],
+                "baseRole": [
+                  "employee"
+                ]
+              },
+              "realmRoles": [
+                "employee"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Managers",
+              "attributes": {
+                "department": [
+                  "Mechanical"
+                ],
+                "baseRole": [
+                  "manager"
+                ]
+              },
+              "realmRoles": [
+                "manager"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Leaders",
+              "attributes": {
+                "department": [
+                  "Mechanical"
+                ],
+                "baseRole": [
+                  "dept-leader"
+                ]
+              },
+              "realmRoles": [
+                "dept-leader"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Auditors",
+              "attributes": {
+                "department": [
+                  "Mechanical"
+                ],
+                "baseRole": [
+                  "read-only"
+                ]
+              },
+              "realmRoles": [
+                "read-only"
+              ],
+              "subGroups": []
+            }
+          ]
         },
         {
           "name": "HR",
+          "path": "/Departments/HR",
           "attributes": {
             "department": [
               "HR"
+            ],
+            "departmentCode": [
+              "HR"
+            ],
+            "description": [
+              "Human Resources"
             ]
           },
-          "subGroups": []
+          "subGroups": [
+            {
+              "name": "Students",
+              "attributes": {
+                "department": [
+                  "HR"
+                ],
+                "baseRole": [
+                  "student"
+                ]
+              },
+              "realmRoles": [
+                "student"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Faculty",
+              "attributes": {
+                "department": [
+                  "HR"
+                ],
+                "baseRole": [
+                  "faculty"
+                ]
+              },
+              "realmRoles": [
+                "faculty"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Employees",
+              "attributes": {
+                "department": [
+                  "HR"
+                ],
+                "baseRole": [
+                  "employee"
+                ]
+              },
+              "realmRoles": [
+                "employee"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Managers",
+              "attributes": {
+                "department": [
+                  "HR"
+                ],
+                "baseRole": [
+                  "manager"
+                ]
+              },
+              "realmRoles": [
+                "manager"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Leaders",
+              "attributes": {
+                "department": [
+                  "HR"
+                ],
+                "baseRole": [
+                  "dept-leader"
+                ]
+              },
+              "realmRoles": [
+                "dept-leader"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Auditors",
+              "attributes": {
+                "department": [
+                  "HR"
+                ],
+                "baseRole": [
+                  "read-only"
+                ]
+              },
+              "realmRoles": [
+                "read-only"
+              ],
+              "subGroups": []
+            }
+          ]
         },
         {
           "name": "IT",
+          "path": "/Departments/IT",
           "attributes": {
             "department": [
               "IT"
+            ],
+            "departmentCode": [
+              "IT"
+            ],
+            "description": [
+              "Information Technology"
             ]
           },
-          "subGroups": []
+          "subGroups": [
+            {
+              "name": "Students",
+              "attributes": {
+                "department": [
+                  "IT"
+                ],
+                "baseRole": [
+                  "student"
+                ]
+              },
+              "realmRoles": [
+                "student"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Faculty",
+              "attributes": {
+                "department": [
+                  "IT"
+                ],
+                "baseRole": [
+                  "faculty"
+                ]
+              },
+              "realmRoles": [
+                "faculty"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Employees",
+              "attributes": {
+                "department": [
+                  "IT"
+                ],
+                "baseRole": [
+                  "employee"
+                ]
+              },
+              "realmRoles": [
+                "employee"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Managers",
+              "attributes": {
+                "department": [
+                  "IT"
+                ],
+                "baseRole": [
+                  "manager"
+                ]
+              },
+              "realmRoles": [
+                "manager"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Leaders",
+              "attributes": {
+                "department": [
+                  "IT"
+                ],
+                "baseRole": [
+                  "dept-leader"
+                ]
+              },
+              "realmRoles": [
+                "dept-leader"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Auditors",
+              "attributes": {
+                "department": [
+                  "IT"
+                ],
+                "baseRole": [
+                  "read-only"
+                ]
+              },
+              "realmRoles": [
+                "read-only"
+              ],
+              "subGroups": []
+            }
+          ]
         },
         {
           "name": "Finance",
+          "path": "/Departments/Finance",
           "attributes": {
             "department": [
               "Finance"
+            ],
+            "departmentCode": [
+              "FIN"
+            ],
+            "description": [
+              "Finance"
             ]
           },
-          "subGroups": []
+          "subGroups": [
+            {
+              "name": "Students",
+              "attributes": {
+                "department": [
+                  "Finance"
+                ],
+                "baseRole": [
+                  "student"
+                ]
+              },
+              "realmRoles": [
+                "student"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Faculty",
+              "attributes": {
+                "department": [
+                  "Finance"
+                ],
+                "baseRole": [
+                  "faculty"
+                ]
+              },
+              "realmRoles": [
+                "faculty"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Employees",
+              "attributes": {
+                "department": [
+                  "Finance"
+                ],
+                "baseRole": [
+                  "employee"
+                ]
+              },
+              "realmRoles": [
+                "employee"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Managers",
+              "attributes": {
+                "department": [
+                  "Finance"
+                ],
+                "baseRole": [
+                  "manager"
+                ]
+              },
+              "realmRoles": [
+                "manager"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Leaders",
+              "attributes": {
+                "department": [
+                  "Finance"
+                ],
+                "baseRole": [
+                  "dept-leader"
+                ]
+              },
+              "realmRoles": [
+                "dept-leader"
+              ],
+              "subGroups": []
+            },
+            {
+              "name": "Auditors",
+              "attributes": {
+                "department": [
+                  "Finance"
+                ],
+                "baseRole": [
+                  "read-only"
+                ]
+              },
+              "realmRoles": [
+                "read-only"
+              ],
+              "subGroups": []
+            }
+          ]
         }
       ]
     }
@@ -170,8 +764,8 @@
       ],
       "realmRoles": [
         "org-head",
-        "mfa-required",
-        "portal-api-access"
+        "portal-api-access",
+        "mfa-required"
       ],
       "credentials": [
         {
@@ -201,8 +795,8 @@
       ],
       "realmRoles": [
         "iam-admin",
-        "mfa-required",
-        "portal-api-access"
+        "portal-api-access",
+        "mfa-required"
       ],
       "credentials": [
         {
@@ -232,8 +826,8 @@
       ],
       "realmRoles": [
         "iam-admin",
-        "mfa-required",
-        "portal-api-access"
+        "portal-api-access",
+        "mfa-required"
       ],
       "credentials": [
         {
@@ -263,8 +857,8 @@
       ],
       "realmRoles": [
         "iam-admin",
-        "mfa-required",
-        "portal-api-access"
+        "portal-api-access",
+        "mfa-required"
       ],
       "credentials": [
         {
@@ -290,12 +884,13 @@
         ]
       },
       "groups": [
-        "/Departments/ICT"
+        "/Departments/ICT",
+        "/Departments/ICT/Leaders"
       ],
       "realmRoles": [
         "dept-leader",
-        "mfa-required",
-        "portal-api-access"
+        "portal-api-access",
+        "mfa-required"
       ],
       "credentials": [
         {
@@ -321,12 +916,13 @@
         ]
       },
       "groups": [
-        "/Departments/Electronics"
+        "/Departments/Electronics",
+        "/Departments/Electronics/Leaders"
       ],
       "realmRoles": [
         "dept-leader",
-        "mfa-required",
-        "portal-api-access"
+        "portal-api-access",
+        "mfa-required"
       ],
       "credentials": [
         {
@@ -352,12 +948,13 @@
         ]
       },
       "groups": [
-        "/Departments/Mechanical"
+        "/Departments/Mechanical",
+        "/Departments/Mechanical/Leaders"
       ],
       "realmRoles": [
         "dept-leader",
-        "mfa-required",
-        "portal-api-access"
+        "portal-api-access",
+        "mfa-required"
       ],
       "credentials": [
         {
@@ -383,7 +980,8 @@
         ]
       },
       "groups": [
-        "/Departments/HR"
+        "/Departments/HR",
+        "/Departments/HR/Managers"
       ],
       "realmRoles": [
         "manager",
@@ -411,7 +1009,8 @@
         ]
       },
       "groups": [
-        "/Departments/IT"
+        "/Departments/IT",
+        "/Departments/IT/Employees"
       ],
       "realmRoles": [
         "employee",
@@ -439,7 +1038,8 @@
         ]
       },
       "groups": [
-        "/Departments/Finance"
+        "/Departments/Finance",
+        "/Departments/Finance/Employees"
       ],
       "realmRoles": [
         "employee",
@@ -467,7 +1067,8 @@
         ]
       },
       "groups": [
-        "/Departments/ICT"
+        "/Departments/ICT",
+        "/Departments/ICT/Faculty"
       ],
       "realmRoles": [
         "faculty",
@@ -495,7 +1096,8 @@
         ]
       },
       "groups": [
-        "/Departments/Electronics"
+        "/Departments/Electronics",
+        "/Departments/Electronics/Faculty"
       ],
       "realmRoles": [
         "faculty",
@@ -526,7 +1128,8 @@
         ]
       },
       "groups": [
-        "/Departments/ICT"
+        "/Departments/ICT",
+        "/Departments/ICT/Students"
       ],
       "realmRoles": [
         "student",
@@ -557,7 +1160,8 @@
         ]
       },
       "groups": [
-        "/Departments/ICT"
+        "/Departments/ICT",
+        "/Departments/ICT/Students"
       ],
       "realmRoles": [
         "student",
@@ -588,7 +1192,8 @@
         ]
       },
       "groups": [
-        "/Departments/Electronics"
+        "/Departments/Electronics",
+        "/Departments/Electronics/Students"
       ],
       "realmRoles": [
         "student",
@@ -619,7 +1224,8 @@
         ]
       },
       "groups": [
-        "/Departments/Mechanical"
+        "/Departments/Mechanical",
+        "/Departments/Mechanical/Students"
       ],
       "realmRoles": [
         "student",
@@ -647,7 +1253,8 @@
         ]
       },
       "groups": [
-        "/Departments/IT"
+        "/Departments/IT",
+        "/Departments/IT/Auditors"
       ],
       "realmRoles": [
         "read-only",
@@ -678,7 +1285,8 @@
         ]
       },
       "groups": [
-        "/Departments/ICT"
+        "/Departments/ICT",
+        "/Departments/ICT/Students"
       ],
       "realmRoles": [
         "student",
@@ -699,7 +1307,7 @@
   "clients": [
     {
       "clientId": "iam-portal",
-      "name": "iam-portal",
+      "name": "Ganpat IAM Governance Portal",
       "enabled": true,
       "protocol": "openid-connect",
       "publicClient": true,
@@ -714,8 +1322,19 @@
         "http://localhost:3000"
       ],
       "attributes": {
-        "pkce.code.challenge.method": "S256"
+        "pkce.code.challenge.method": "S256",
+        "post.logout.redirect.uris": "http://localhost:3000/*",
+        "backchannel.logout.url": "http://localhost:3000/backchannel-logout",
+        "backchannel.logout.session.required": "true"
       },
+      "defaultClientScopes": [
+        "basic",
+        "profile",
+        "email",
+        "roles",
+        "web-origins",
+        "acr"
+      ],
       "protocolMappers": [
         {
           "name": "Subject (sub)",
@@ -766,11 +1385,12 @@
             "userinfo.token.claim": "true"
           }
         }
-      ]
+      ],
+      "frontchannelLogout": true
     },
     {
       "clientId": "student-portal",
-      "name": "student-portal",
+      "name": "Student Portal",
       "enabled": true,
       "protocol": "openid-connect",
       "publicClient": true,
@@ -785,8 +1405,19 @@
         "http://localhost:3001"
       ],
       "attributes": {
-        "pkce.code.challenge.method": "S256"
+        "pkce.code.challenge.method": "S256",
+        "post.logout.redirect.uris": "http://localhost:3001/*",
+        "backchannel.logout.url": "http://localhost:3001/backchannel-logout",
+        "backchannel.logout.session.required": "true"
       },
+      "defaultClientScopes": [
+        "basic",
+        "profile",
+        "email",
+        "roles",
+        "web-origins",
+        "acr"
+      ],
       "protocolMappers": [
         {
           "name": "Subject (sub)",
@@ -837,11 +1468,12 @@
             "userinfo.token.claim": "true"
           }
         }
-      ]
+      ],
+      "frontchannelLogout": true
     },
     {
       "clientId": "library-portal",
-      "name": "library-portal",
+      "name": "Library Portal",
       "enabled": true,
       "protocol": "openid-connect",
       "publicClient": true,
@@ -856,8 +1488,116 @@
         "http://localhost:3002"
       ],
       "attributes": {
-        "pkce.code.challenge.method": "S256"
+        "pkce.code.challenge.method": "S256",
+        "post.logout.redirect.uris": "http://localhost:3002/*",
+        "backchannel.logout.url": "http://localhost:3002/backchannel-logout",
+        "backchannel.logout.session.required": "true"
       },
+      "defaultClientScopes": [
+        "basic",
+        "profile",
+        "email",
+        "roles",
+        "web-origins",
+        "acr"
+      ],
+      "protocolMappers": [
+        {
+          "name": "Subject (sub)",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-sub-mapper",
+          "consentRequired": false,
+          "config": {
+            "access.token.claim": "true",
+            "introspection.token.claim": "true",
+            "lightweight.claim": "false"
+          }
+        },
+        {
+          "name": "audience-portal-api",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "consentRequired": false,
+          "config": {
+            "included.client.audience": "portal-api",
+            "id.token.claim": "false",
+            "access.token.claim": "true"
+          }
+        },
+        {
+          "name": "groups",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-group-membership-mapper",
+          "consentRequired": false,
+          "config": {
+            "full.path": "true",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "claim.name": "groups"
+          }
+        },
+        {
+          "name": "department",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-attribute-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "department",
+            "claim.name": "department",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true"
+          }
+        }
+      ],
+      "frontchannelLogout": true
+    },
+    {
+      "clientId": "portal-api",
+      "name": "Portal API audience",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "bearerOnly": true,
+      "standardFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false
+    },
+    {
+      "clientId": "iam-governance-service",
+      "name": "IAM Governance Backend Service",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "clientAuthenticatorType": "client-secret",
+      "standardFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "implicitFlowEnabled": false,
+      "serviceAccountsEnabled": true
+    },
+    {
+      "clientId": "iam-test-cli",
+      "name": "TEST ONLY - acceptance tests",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "standardFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "implicitFlowEnabled": false,
+      "serviceAccountsEnabled": false,
+      "attributes": {
+        "test.only": "true"
+      },
+      "defaultClientScopes": [
+        "basic",
+        "profile",
+        "email",
+        "roles",
+        "web-origins",
+        "acr"
+      ],
       "protocolMappers": [
         {
           "name": "Subject (sub)",
@@ -911,33 +1651,45 @@
       ]
     },
     {
-      "clientId": "portal-api",
-      "name": "Portal API audience",
-      "enabled": true,
-      "protocol": "openid-connect",
-      "publicClient": false,
-      "bearerOnly": true,
-      "standardFlowEnabled": false,
-      "directAccessGrantsEnabled": false
-    },
-    {
       "clientId": "saml-sp",
       "name": "SAML Service Provider Demo",
       "enabled": true,
       "protocol": "saml",
       "publicClient": true,
       "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
       "redirectUris": [
         "http://localhost:3003/*"
       ],
       "attributes": {
         "saml.force.post.binding": "true",
         "saml_name_id_format": "username",
-        "saml_assertion_consumer_url_post": "http://localhost:3003/saml/acs"
+        "saml_assertion_consumer_url_post": "http://localhost:3003/saml/acs",
+        "saml_single_logout_service_url_redirect": "http://localhost:3003/saml/logout"
       }
     }
   ],
   "clientScopes": [
+    {
+      "name": "basic",
+      "protocol": "openid-connect",
+      "attributes": {
+        "include.in.token.scope": "false",
+        "display.on.consent.screen": "false"
+      },
+      "protocolMappers": [
+        {
+          "name": "Subject (sub)",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-sub-mapper",
+          "consentRequired": false,
+          "config": {
+            "access.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        }
+      ]
+    },
     {
       "name": "department",
       "protocol": "openid-connect",
@@ -948,6 +1700,7 @@
     }
   ],
   "defaultDefaultClientScopes": [
+    "basic",
     "profile",
     "email",
     "roles",
@@ -962,17 +1715,30 @@
     "department"
   ],
   "eventsEnabled": true,
+  "eventsExpiration": 2592000,
   "eventsListeners": [
     "jboss-logging"
   ],
+  "enabledEventTypes": [
+    "LOGIN",
+    "LOGIN_ERROR",
+    "LOGOUT",
+    "UPDATE_PASSWORD",
+    "UPDATE_TOTP",
+    "REMOVE_TOTP",
+    "RESET_PASSWORD",
+    "REGISTER",
+    "DELETE_ACCOUNT",
+    "CODE_TO_TOKEN",
+    "CODE_TO_TOKEN_ERROR",
+    "REFRESH_TOKEN_ERROR",
+    "CLIENT_LOGIN"
+  ],
   "adminEventsEnabled": true,
   "adminEventsDetailsEnabled": true,
-  "passwordPolicy": "length(12) and digits(1) and upperCase(1) and lowerCase(1) and specialChars(1)",
   "otpPolicyType": "totp",
   "otpPolicyAlgorithm": "HmacSHA1",
   "otpPolicyDigits": 6,
   "otpPolicyPeriod": 30,
-  "otpPolicyLookAheadWindow": 1,
-  "browserFlow": "browser",
-  "resetCredentialsFlow": "reset credentials"
+  "otpPolicyLookAheadWindow": 1
 }

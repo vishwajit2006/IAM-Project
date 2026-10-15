@@ -53,7 +53,16 @@ services:
       LDAP_ADMIN_PASSWORD: ${LDAP_ADMIN_PASSWORD:?Copy .env.example to .env}
       LDAP_TLS: "false"
     ports: ["1389:389"]
-    volumes: ["./ldap/seed.ldif:/container/service/slapd/assets/config/bootstrap/ldif/50-seed.ldif:ro"]
+    volumes:
+      - ldapdata:/var/lib/ldap
+      - ldapconf:/etc/ldap/slapd.d
+      - ./ldap/seed.ldif:/container/service/slapd/assets/config/bootstrap/ldif/50-seed.ldif
+    healthcheck:
+      test: ["CMD", "ldapsearch", "-x", "-H", "ldap://localhost", "-b", "dc=ganpat,dc=local", "-D", "cn=admin,dc=ganpat,dc=local", "-w", "${LDAP_ADMIN_PASSWORD}", "(objectClass=organizationalUnit)"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
   keycloak-config:
     image: quay.io/keycloak/keycloak:26.4.0
     entrypoint: ["/bin/bash", "/opt/keycloak/scripts/setup.sh"]
@@ -122,3 +131,5 @@ services:
     depends_on: [keycloak]
 volumes:
   pgdata:
+  ldapdata:
+  ldapconf:

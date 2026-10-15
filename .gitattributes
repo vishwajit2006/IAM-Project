@@ -1,0 +1,40 @@
+﻿# Enforce LF line endings for all text content so shell scripts work correctly
+# inside Linux containers without manual dos2unix/iconv conversion steps.
+* text=auto eol=lf
+
+# Shell scripts must always be LF — CRLF breaks bash inside the Keycloak container.
+*.sh text eol=lf
+
+# JavaScript and JSON source
+*.js text eol=lf
+*.mjs text eol=lf
+*.cjs text eol=lf
+*.json text eol=lf
+*.jsx text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+
+# Config files
+*.yml text eol=lf
+*.yaml text eol=lf
+*.env.example text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.sql text eol=lf
+*.ldif text eol=lf
+*.conf text eol=lf
+*.properties text eol=lf
+Dockerfile text eol=lf
+
+# Binary files — never touch line endings
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.svg binary

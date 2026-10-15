@@ -33,5 +33,19 @@ venv/
 # Editor and operating system files
 .vscode/
 .idea/
-Thumbs.dbkeycloak/build-realm.mjs.broken-backup
-/keycloak/build-realm.mjs.broken-backup
+Thumbs.db
+
+# Backup files created during repairs — never commit
+*.before-repair
+*.broken-backup
+
+# SQL dumps and database exports
+*.sql.dump
+*.pgdump
+
+# PowerShell leftover artifact
+-Pattern
+
+# Generated Keycloak realm JSON: safe to commit because it only contains
+# the ${DEMO_USER_PASSWORD} placeholder, never the resolved value.
+# Do not add the real .env file or SQL dumps to this repo.
