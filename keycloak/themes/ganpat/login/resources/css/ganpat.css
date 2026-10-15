@@ -1,0 +1,3 @@
+:root { --pf-global--primary-color--100: #3730a3; --pf-global--primary-color--200: #312e81; }
+.login-pf body, body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.card-pf { border-radius: 12px; }

@@ -1,0 +1,978 @@
+{
+  "realm": "ganpat-iam",
+  "displayName": "Ganpat University IAM",
+  "enabled": true,
+  "sslRequired": "none",
+  "loginTheme": "ganpat",
+  "accountTheme": "ganpat",
+  "adminTheme": "ganpat",
+  "registrationAllowed": false,
+  "resetPasswordAllowed": true,
+  "rememberMe": true,
+  "verifyEmail": false,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "editUsernameAllowed": false,
+  "bruteForceProtected": true,
+  "permanentLockout": false,
+  "failureFactor": 5,
+  "waitIncrementSeconds": 60,
+  "maxFailureWaitSeconds": 900,
+  "minimumQuickLoginWaitSeconds": 60,
+  "quickLoginCheckMilliSeconds": 1000,
+  "maxDeltaTimeSeconds": 43200,
+  "roles": {
+    "realm": [
+      {
+        "name": "org-head",
+        "description": "Ganpat IAM role: org-head",
+        "composite": true,
+        "composites": {
+          "realm": [
+            "mfa-required"
+          ]
+        }
+      },
+      {
+        "name": "iam-admin",
+        "description": "Ganpat IAM role: iam-admin",
+        "composite": true,
+        "composites": {
+          "realm": [
+            "mfa-required"
+          ]
+        }
+      },
+      {
+        "name": "dept-leader",
+        "description": "Ganpat IAM role: dept-leader",
+        "composite": true,
+        "composites": {
+          "realm": [
+            "mfa-required"
+          ]
+        }
+      },
+      {
+        "name": "manager",
+        "description": "Ganpat IAM role: manager",
+        "composite": false
+      },
+      {
+        "name": "employee",
+        "description": "Ganpat IAM role: employee",
+        "composite": false
+      },
+      {
+        "name": "faculty",
+        "description": "Ganpat IAM role: faculty",
+        "composite": false
+      },
+      {
+        "name": "student",
+        "description": "Ganpat IAM role: student",
+        "composite": false
+      },
+      {
+        "name": "read-only",
+        "description": "Ganpat IAM role: read-only",
+        "composite": false
+      },
+      {
+        "name": "mfa-required",
+        "description": "Ganpat IAM role: mfa-required",
+        "composite": false
+      },
+      {
+        "name": "portal-api-access",
+        "description": "Ganpat IAM role: portal-api-access",
+        "composite": false
+      }
+    ]
+  },
+  "groups": [
+    {
+      "name": "Departments",
+      "path": "/Departments",
+      "subGroups": [
+        {
+          "name": "ICT",
+          "attributes": {
+            "department": [
+              "ICT"
+            ]
+          },
+          "subGroups": []
+        },
+        {
+          "name": "Electronics",
+          "attributes": {
+            "department": [
+              "Electronics"
+            ]
+          },
+          "subGroups": []
+        },
+        {
+          "name": "Mechanical",
+          "attributes": {
+            "department": [
+              "Mechanical"
+            ]
+          },
+          "subGroups": []
+        },
+        {
+          "name": "HR",
+          "attributes": {
+            "department": [
+              "HR"
+            ]
+          },
+          "subGroups": []
+        },
+        {
+          "name": "IT",
+          "attributes": {
+            "department": [
+              "IT"
+            ]
+          },
+          "subGroups": []
+        },
+        {
+          "name": "Finance",
+          "attributes": {
+            "department": [
+              "Finance"
+            ]
+          },
+          "subGroups": []
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "username": "head.ganpat",
+      "enabled": true,
+      "email": "head_ganpat@ganpat.example.edu",
+      "emailVerified": true,
+      "firstName": "Vishwajit",
+      "lastName": "Head",
+      "attributes": {
+        "department": [
+          "ICT"
+        ]
+      },
+      "groups": [
+        "/Departments/ICT"
+      ],
+      "realmRoles": [
+        "org-head",
+        "mfa-required",
+        "portal-api-access"
+      ],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "${DEMO_USER_PASSWORD}",
+          "temporary": false
+        }
+      ],
+      "requiredActions": [
+        "CONFIGURE_TOTP"
+      ]
+    },
+    {
+      "username": "admin.priya",
+      "enabled": true,
+      "email": "admin_priya@ganpat.example.edu",
+      "emailVerified": true,
+      "firstName": "Priya",
+      "lastName": "Shah",
+      "attributes": {
+        "department": [
+          "IT"
+        ]
+      },
+      "groups": [
+        "/Departments/IT"
+      ],
+      "realmRoles": [
+        "iam-admin",
+        "mfa-required",
+        "portal-api-access"
+      ],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "${DEMO_USER_PASSWORD}",
+          "temporary": false
+        }
+      ],
+      "requiredActions": [
+        "CONFIGURE_TOTP"
+      ]
+    },
+    {
+      "username": "admin.rahul",
+      "enabled": true,
+      "email": "admin_rahul@ganpat.example.edu",
+      "emailVerified": true,
+      "firstName": "Rahul",
+      "lastName": "Patel",
+      "attributes": {
+        "department": [
+          "IT"
+        ]
+      },
+      "groups": [
+        "/Departments/IT"
+      ],
+      "realmRoles": [
+        "iam-admin",
+        "mfa-required",
+        "portal-api-access"
+      ],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "${DEMO_USER_PASSWORD}",
+          "temporary": false
+        }
+      ],
+      "requiredActions": [
+        "CONFIGURE_TOTP"
+      ]
+    },
+    {
+      "username": "mfa.admin",
+      "enabled": true,
+      "email": "mfa_admin@ganpat.example.edu",
+      "emailVerified": true,
+      "firstName": "MFA",
+      "lastName": "Administrator",
+      "attributes": {
+        "department": [
+          "IT"
+        ]
+      },
+      "groups": [
+        "/Departments/IT"
+      ],
+      "realmRoles": [
+        "iam-admin",
+        "mfa-required",
+        "portal-api-access"
+      ],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "${DEMO_USER_PASSWORD}",
+          "temporary": false
+        }
+      ],
+      "requiredActions": [
+        "CONFIGURE_TOTP"
+      ]
+    },
+    {
+      "username": "leader.ict",
+      "enabled": true,
+      "email": "leader_ict@ganpat.example.edu",
+      "emailVerified": true,
+      "firstName": "ICT",
+      "lastName": "Leader",
+      "attributes": {
+        "department": [
+          "ICT"
+        ]
+      },
+      "groups": [
+        "/Departments/ICT"
+      ],
+      "realmRoles": [
+        "dept-leader",
+        "mfa-required",
+        "portal-api-access"
+      ],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "${DEMO_USER_PASSWORD}",
+          "temporary": false
+        }
+      ],
+      "requiredActions": [
+        "CONFIGURE_TOTP"
+      ]
+    },
+    {
+      "username": "leader.ec",
+      "enabled": true,
+      "email": "leader_ec@ganpat.example.edu",
+      "emailVerified": true,
+      "firstName": "Electronics",
+      "lastName": "Leader",
+      "attributes": {
+        "department": [
+          "Electronics"
+        ]
+      },
+      "groups": [
+        "/Departments/Electronics"
+      ],
+      "realmRoles": [
+        "dept-leader",
+        "mfa-required",
+        "portal-api-access"
+      ],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "${DEMO_USER_PASSWORD}",
+          "temporary": false
+        }
+      ],
+      "requiredActions": [
+        "CONFIGURE_TOTP"
+      ]
+    },
+    {
+      "username": "leader.me",
+      "enabled": true,
+      "email": "leader_me@ganpat.example.edu",
+      "emailVerified": true,
+      "firstName": "Mechanical",
+      "lastName": "Leader",
+      "attributes": {
+        "department": [
+          "Mechanical"
+        ]
+      },
+      "groups": [
+        "/Departments/Mechanical"
+      ],
+      "realmRoles": [
+        "dept-leader",
+        "mfa-required",
+        "portal-api-access"
+      ],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "${DEMO_USER_PASSWORD}",
+          "temporary": false
+        }
+      ],
+      "requiredActions": [
+        "CONFIGURE_TOTP"
+      ]
+    },
+    {
+      "username": "manager.hr",
+      "enabled": true,
+      "email": "manager_hr@ganpat.example.edu",
+      "emailVerified": true,
+      "firstName": "HR",
+      "lastName": "Manager",
+      "attributes": {
+        "department": [
+          "HR"
+        ]
+      },
+      "groups": [
+        "/Departments/HR"
+      ],
+      "realmRoles": [
+        "manager",
+        "portal-api-access"
+      ],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "${DEMO_USER_PASSWORD}",
+          "temporary": false
+        }
+      ],
+      "requiredActions": []
+    },
+    {
+      "username": "emp.it1",
+      "enabled": true,
+      "email": "emp_it1@ganpat.example.edu",
+      "emailVerified": true,
+      "firstName": "IT",
+      "lastName": "Employee One",
+      "attributes": {
+        "department": [
+          "IT"
+        ]
+      },
+      "groups": [
+        "/Departments/IT"
+      ],
+      "realmRoles": [
+        "employee",
+        "portal-api-access"
+      ],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "${DEMO_USER_PASSWORD}",
+          "temporary": false
+        }
+      ],
+      "requiredActions": []
+    },
+    {
+      "username": "emp.fin1",
+      "enabled": true,
+      "email": "emp_fin1@ganpat.example.edu",
+      "emailVerified": true,
+      "firstName": "Finance",
+      "lastName": "Employee One",
+      "attributes": {
+        "department": [
+          "Finance"
+        ]
+      },
+      "groups": [
+        "/Departments/Finance"
+      ],
+      "realmRoles": [
+        "employee",
+        "portal-api-access"
+      ],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "${DEMO_USER_PASSWORD}",
+          "temporary": false
+        }
+      ],
+      "requiredActions": []
+    },
+    {
+      "username": "fac.ict1",
+      "enabled": true,
+      "email": "fac_ict1@ganpat.example.edu",
+      "emailVerified": true,
+      "firstName": "ICT",
+      "lastName": "Faculty One",
+      "attributes": {
+        "department": [
+          "ICT"
+        ]
+      },
+      "groups": [
+        "/Departments/ICT"
+      ],
+      "realmRoles": [
+        "faculty",
+        "portal-api-access"
+      ],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "${DEMO_USER_PASSWORD}",
+          "temporary": false
+        }
+      ],
+      "requiredActions": []
+    },
+    {
+      "username": "fac.ec1",
+      "enabled": true,
+      "email": "fac_ec1@ganpat.example.edu",
+      "emailVerified": true,
+      "firstName": "Electronics",
+      "lastName": "Faculty One",
+      "attributes": {
+        "department": [
+          "Electronics"
+        ]
+      },
+      "groups": [
+        "/Departments/Electronics"
+      ],
+      "realmRoles": [
+        "faculty",
+        "portal-api-access"
+      ],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "${DEMO_USER_PASSWORD}",
+          "temporary": false
+        }
+      ],
+      "requiredActions": []
+    },
+    {
+      "username": "stu.ict1",
+      "enabled": true,
+      "email": "stu_ict1@ganpat.example.edu",
+      "emailVerified": true,
+      "firstName": "ICT",
+      "lastName": "Student One",
+      "attributes": {
+        "department": [
+          "ICT"
+        ],
+        "studentId": [
+          "GU-0013"
+        ]
+      },
+      "groups": [
+        "/Departments/ICT"
+      ],
+      "realmRoles": [
+        "student",
+        "portal-api-access"
+      ],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "${DEMO_USER_PASSWORD}",
+          "temporary": false
+        }
+      ],
+      "requiredActions": []
+    },
+    {
+      "username": "stu.ict2",
+      "enabled": true,
+      "email": "stu_ict2@ganpat.example.edu",
+      "emailVerified": true,
+      "firstName": "ICT",
+      "lastName": "Student Two",
+      "attributes": {
+        "department": [
+          "ICT"
+        ],
+        "studentId": [
+          "GU-0014"
+        ]
+      },
+      "groups": [
+        "/Departments/ICT"
+      ],
+      "realmRoles": [
+        "student",
+        "portal-api-access"
+      ],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "${DEMO_USER_PASSWORD}",
+          "temporary": false
+        }
+      ],
+      "requiredActions": []
+    },
+    {
+      "username": "stu.ec1",
+      "enabled": true,
+      "email": "stu_ec1@ganpat.example.edu",
+      "emailVerified": true,
+      "firstName": "Electronics",
+      "lastName": "Student One",
+      "attributes": {
+        "department": [
+          "Electronics"
+        ],
+        "studentId": [
+          "GU-0015"
+        ]
+      },
+      "groups": [
+        "/Departments/Electronics"
+      ],
+      "realmRoles": [
+        "student",
+        "portal-api-access"
+      ],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "${DEMO_USER_PASSWORD}",
+          "temporary": false
+        }
+      ],
+      "requiredActions": []
+    },
+    {
+      "username": "stu.me1",
+      "enabled": true,
+      "email": "stu_me1@ganpat.example.edu",
+      "emailVerified": true,
+      "firstName": "Mechanical",
+      "lastName": "Student One",
+      "attributes": {
+        "department": [
+          "Mechanical"
+        ],
+        "studentId": [
+          "GU-0016"
+        ]
+      },
+      "groups": [
+        "/Departments/Mechanical"
+      ],
+      "realmRoles": [
+        "student",
+        "portal-api-access"
+      ],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "${DEMO_USER_PASSWORD}",
+          "temporary": false
+        }
+      ],
+      "requiredActions": []
+    },
+    {
+      "username": "ro.audit",
+      "enabled": true,
+      "email": "ro_audit@ganpat.example.edu",
+      "emailVerified": true,
+      "firstName": "Audit",
+      "lastName": "Read Only",
+      "attributes": {
+        "department": [
+          "IT"
+        ]
+      },
+      "groups": [
+        "/Departments/IT"
+      ],
+      "realmRoles": [
+        "read-only",
+        "portal-api-access"
+      ],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "${DEMO_USER_PASSWORD}",
+          "temporary": false
+        }
+      ],
+      "requiredActions": []
+    },
+    {
+      "username": "mfa.test",
+      "enabled": true,
+      "email": "mfa_test@ganpat.example.edu",
+      "emailVerified": true,
+      "firstName": "MFA",
+      "lastName": "Test Student",
+      "attributes": {
+        "department": [
+          "ICT"
+        ],
+        "studentId": [
+          "GU-0018"
+        ]
+      },
+      "groups": [
+        "/Departments/ICT"
+      ],
+      "realmRoles": [
+        "student",
+        "portal-api-access"
+      ],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "${DEMO_USER_PASSWORD}",
+          "temporary": false
+        }
+      ],
+      "requiredActions": [
+        "CONFIGURE_TOTP"
+      ]
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "iam-portal",
+      "name": "iam-portal",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "implicitFlowEnabled": false,
+      "serviceAccountsEnabled": false,
+      "redirectUris": [
+        "http://localhost:3000/*"
+      ],
+      "webOrigins": [
+        "http://localhost:3000"
+      ],
+      "attributes": {
+        "pkce.code.challenge.method": "S256"
+      },
+      "protocolMappers": [
+        {
+          "name": "Subject (sub)",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-sub-mapper",
+          "consentRequired": false,
+          "config": {
+            "access.token.claim": "true",
+            "introspection.token.claim": "true",
+            "lightweight.claim": "false"
+          }
+        },
+        {
+          "name": "audience-portal-api",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "consentRequired": false,
+          "config": {
+            "included.client.audience": "portal-api",
+            "id.token.claim": "false",
+            "access.token.claim": "true"
+          }
+        },
+        {
+          "name": "groups",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-group-membership-mapper",
+          "consentRequired": false,
+          "config": {
+            "full.path": "true",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "claim.name": "groups"
+          }
+        },
+        {
+          "name": "department",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-attribute-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "department",
+            "claim.name": "department",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true"
+          }
+        }
+      ]
+    },
+    {
+      "clientId": "student-portal",
+      "name": "student-portal",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "implicitFlowEnabled": false,
+      "serviceAccountsEnabled": false,
+      "redirectUris": [
+        "http://localhost:3001/*"
+      ],
+      "webOrigins": [
+        "http://localhost:3001"
+      ],
+      "attributes": {
+        "pkce.code.challenge.method": "S256"
+      },
+      "protocolMappers": [
+        {
+          "name": "Subject (sub)",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-sub-mapper",
+          "consentRequired": false,
+          "config": {
+            "access.token.claim": "true",
+            "introspection.token.claim": "true",
+            "lightweight.claim": "false"
+          }
+        },
+        {
+          "name": "audience-portal-api",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "consentRequired": false,
+          "config": {
+            "included.client.audience": "portal-api",
+            "id.token.claim": "false",
+            "access.token.claim": "true"
+          }
+        },
+        {
+          "name": "groups",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-group-membership-mapper",
+          "consentRequired": false,
+          "config": {
+            "full.path": "true",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "claim.name": "groups"
+          }
+        },
+        {
+          "name": "department",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-attribute-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "department",
+            "claim.name": "department",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true"
+          }
+        }
+      ]
+    },
+    {
+      "clientId": "library-portal",
+      "name": "library-portal",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "implicitFlowEnabled": false,
+      "serviceAccountsEnabled": false,
+      "redirectUris": [
+        "http://localhost:3002/*"
+      ],
+      "webOrigins": [
+        "http://localhost:3002"
+      ],
+      "attributes": {
+        "pkce.code.challenge.method": "S256"
+      },
+      "protocolMappers": [
+        {
+          "name": "Subject (sub)",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-sub-mapper",
+          "consentRequired": false,
+          "config": {
+            "access.token.claim": "true",
+            "introspection.token.claim": "true",
+            "lightweight.claim": "false"
+          }
+        },
+        {
+          "name": "audience-portal-api",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "consentRequired": false,
+          "config": {
+            "included.client.audience": "portal-api",
+            "id.token.claim": "false",
+            "access.token.claim": "true"
+          }
+        },
+        {
+          "name": "groups",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-group-membership-mapper",
+          "consentRequired": false,
+          "config": {
+            "full.path": "true",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "claim.name": "groups"
+          }
+        },
+        {
+          "name": "department",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-attribute-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "department",
+            "claim.name": "department",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true"
+          }
+        }
+      ]
+    },
+    {
+      "clientId": "portal-api",
+      "name": "Portal API audience",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "bearerOnly": true,
+      "standardFlowEnabled": false,
+      "directAccessGrantsEnabled": false
+    },
+    {
+      "clientId": "saml-sp",
+      "name": "SAML Service Provider Demo",
+      "enabled": true,
+      "protocol": "saml",
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "redirectUris": [
+        "http://localhost:3003/*"
+      ],
+      "attributes": {
+        "saml.force.post.binding": "true",
+        "saml_name_id_format": "username",
+        "saml_assertion_consumer_url_post": "http://localhost:3003/saml/acs"
+      }
+    }
+  ],
+  "clientScopes": [
+    {
+      "name": "department",
+      "protocol": "openid-connect",
+      "attributes": {
+        "include.in.token.scope": "true",
+        "display.on.consent.screen": "false"
+      }
+    }
+  ],
+  "defaultDefaultClientScopes": [
+    "profile",
+    "email",
+    "roles",
+    "web-origins",
+    "acr"
+  ],
+  "defaultOptionalClientScopes": [
+    "address",
+    "phone",
+    "offline_access",
+    "microprofile-jwt",
+    "department"
+  ],
+  "eventsEnabled": true,
+  "eventsListeners": [
+    "jboss-logging"
+  ],
+  "adminEventsEnabled": true,
+  "adminEventsDetailsEnabled": true,
+  "passwordPolicy": "length(12) and digits(1) and upperCase(1) and lowerCase(1) and specialChars(1)",
+  "otpPolicyType": "totp",
+  "otpPolicyAlgorithm": "HmacSHA1",
+  "otpPolicyDigits": 6,
+  "otpPolicyPeriod": 30,
+  "otpPolicyLookAheadWindow": 1,
+  "browserFlow": "browser",
+  "resetCredentialsFlow": "reset credentials"
+}

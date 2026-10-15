@@ -1,0 +1,14 @@
+dn: ou=People,dc=ganpat,dc=local
+objectClass: organizationalUnit
+ou: People
+
+dn: ou=Groups,dc=ganpat,dc=local
+objectClass: organizationalUnit
+ou: Groups
+
+dn: uid=ldap.demo,ou=People,dc=ganpat,dc=local
+objectClass: inetOrgPerson
+cn: LDAP Demo
+sn: Demo
+uid: ldap.demo
+mail: ldap.demo@ganpat.example.edu

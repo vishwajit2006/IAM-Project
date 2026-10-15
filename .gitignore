@@ -1,0 +1,37 @@
+node_modules/
+dist/
+.env
+coverage/
+*.log
+.DS_Store
+# Environment files and secrets
+.env.*
+!.env.example
+
+# Build and test output
+build/
+.next/
+coverage/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Private keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local database files
+*.sqlite
+*.sqlite3
+*.db
+
+# Editor and operating system files
+.vscode/
+.idea/
+Thumbs.dbkeycloak/build-realm.mjs.broken-backup
+/keycloak/build-realm.mjs.broken-backup
